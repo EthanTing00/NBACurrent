@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <a href="{% url 'home' %}" class="logo">NBAStats.</a>
+            <nav>
+                <u1 class="nav__links">
+                <li><a href="#">TEAMS</a></li>
+                <li><a href="#">PLAYERS</a></li>
+                <li><a href="#">ABOUT</a></li>
+                </u1>
+            </nav>
+            <!-- <a class="cta" href="#"><button class="info_button">INFO</button></a> -->
+        </header>
+
+
+        <div class="search">
+            <form action = page method="get">
+                <input type="general_search" class = 'search-query' placeholder= 'SEARCH A NBA PLAYER' name='new_Text'>
+                <button class="search_button" type= "submit"><span id="home" class="iconify" data-icon="ant-design:search-outlined" data-inline="false"></span></button>
+            </form>
+        </div>
+
+        <div class='bottom_text'>
+            MADE BY ETHAN TING
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+

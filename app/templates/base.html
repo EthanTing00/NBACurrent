@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Player Page</title>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <a href="{% url 'home' %}" class="logo">NBAStats.</a>
+            <nav>
+                <u1 class="nav__links">
+                    <li><a href="#">TEAMS</a></li>
+                    <li><a href="#">PLAYERS</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li>
+                        <div class="nav_search">
+                            <form method="get">
+                                <input type="text" class = 'nav-search-query' placeholder= 'SEARCH A NBA PLAYER' name='new_Text'>
+                                <button class="nav_search_button" type = "submit"><span id="nav" class="iconify" data-icon="ant-design:search-outlined" data-inline="false"></button>
+                            </form>
+                        </div>
+                    </li>
+                </u1>
+            </nav>
+        </header>
+        {% if messages %}
+        {% for message in messages %}
+        <div class= "alert" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
+        <br><br><br><br>
+    </body>
+</html>

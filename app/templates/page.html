@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+        {% if general_info %}  
+            {% for i in general_info %}
+            <div class="general_info">
+                <p>{{ i.first_name }} {{ i.last_name }} - {{ i.position }}</p>
+                <p>{{ i.team.full_name }}</p>
+            </div>
+            {% endfor %}
+            <hr>
+
+            <div class="season_averages">
+            <p>Season Averages</p>
+            <hr>
+            <div class="table">
+            <table class="content_table">
+                <tr>
+                    <th>Season</th><th>GP</th><th>Min</th><th>FG</th><th>FGA</th><th>FG%</th><th>3P</th><th>3PA</th><th>3P%</th>
+                    <th>FTM</th><th>FTA</th><th>FT%</th><th>Reb</th><th>OReb</th><th>DReb</th><th>AST</th><th>STL</th><th>BLK</th><th>TOV</th>
+                    <th>PF</th><th>PTS</th>
+                </tr>
+            {% for i in season_averages reversed %} 
+                {% if i %}
+                <tr>
+                    <td>{{ i.season }}</td><td>{{ i.games_played }}</td><td>{{ i.min }}</td><td>{{ i.fgm }}</td><td>{{ i.fga }}</td>
+                    <td>{{ i.fg_pct }}</td><td>{{ i.fg3m }}</td><td>{{ i.fg3a }}</td><td>{{ i.fg3_pct }}</td><td>{{ i.ftm }}</td>
+                    <td>{{ i.fta }}</td><td>{{ i.ft_pct }}</td><td>{{ i.reb }}</td><td>{{ i.oreb }}</td><td>{{ i.dreb }}</td>
+                    <td>{{ i.ast }}</td><td>{{ i.stl }}</td><td>{{ i.blk }}</td><td>{{ i.turnover }}</td><td>{{ i.pf }}</td>
+                    <td>{{ i.pts }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            </div>
+            </table>
+            </div>
+
+            <div class="recent_games">
+            <p>Recent Games</p>
+            <hr>
+            <div class="table">
+            <table class="content_table">
+                <tr>
+                    <th>Date</th><th>Min</th><th>PTS</th><th>REB</th><th>AST</th><th>FG</th><th>FT</th><th>3PT</th><th>STL</th><th>BLK</th><th>TOV</th>
+                    <th>PF</th><th>OREB</th><th>DREB</th><th>FG%</th><th>FT%</th><th>3PT%</th>
+                </tr>
+            {% for game in last_five_games|dictsortreversed:"id" %}
+                {% if forloop.counter < 6 %}
+                    <tr>
+                        <td>{{ game.game.date|slice:10 }}</td><td>{{ game.min }}</td><td>{{ game.pts }}</td><td>{{ game.reb }}</td><td>{{ game.ast }}</td>
+                        <td>{{ game.fgm }}/{{ game.fga }}</td><td>{{ game.ftm }}/{{ game.fta }}</td><td>{{ game.fg3m }}/{{ game.fg3a }}</td>
+                        <td>{{ game.stl }}</td><td>{{ game.blk }}</td><td>{{ game.turnover }}</td><td>{{ game.pf }}</td>
+                        <td>{{ game.oreb }}</td><td>{{ game.dreb }}</td><td>{{ game.fg_pct }}</td><td>{{ game.ft_pct }}</td>
+                        <td>{{ game.fg3_pct }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </div>
+            </table>
+            </div>
+        {% endif %}
+
+{% endblock %}
