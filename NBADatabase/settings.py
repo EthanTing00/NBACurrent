@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'a1ny@d85=%q@)rwvde9xhu4d7u#9*f9o!b_yfa+o3llbz_b=2)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 
-ALLOWED_HOSTS = ['nbacurrent.herokuapp.com']
+ALLOWED_HOSTS = ['nbacurrent.herokuapp.com','127.0.0.1']
 
 #STATICFILES_DIRS = [
 #    "/Documents/NBADatabase/NBADatabase/app/static"
@@ -127,3 +127,4 @@ STATIC_URL = '/static/'
 #STATICFILES_DIRS = (
 #    os.path.join(BASE_DIR, 'app/static/'),
 #)
+    
