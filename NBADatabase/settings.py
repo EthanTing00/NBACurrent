@@ -28,9 +28,9 @@ SECRET_KEY = 'a1ny@d85=%q@)rwvde9xhu4d7u#9*f9o!b_yfa+o3llbz_b=2)'
 
 ALLOWED_HOSTS = ['nbacurrent.herokuapp.com']
 
-STATICFILES_DIRS = [
-    "/Documents/NBADatabase/NBADatabase/app/static"
-]
+#STATICFILES_DIRS = [
+#    "/Documents/NBADatabase/NBADatabase/app/static"
+#]
 
 # Application definition
 
@@ -122,9 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = '/Documents/NBADatabase/NBADatabase/app/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'app/static/'),
+    os.path.join(BASE_DIR, 'static/'),
 )
