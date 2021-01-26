@@ -1,2 +1,2 @@
-# :basketball: NBACurrent
+#  NBACurrent :basketball:
 ## Description
